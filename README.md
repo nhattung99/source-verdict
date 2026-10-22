@@ -104,15 +104,18 @@ Before a result is stored, the contract forces the tier and the score to agree:
 ```bash
 python -m venv .venv
 .venv\Scripts\pip install -r requirements-dev.txt
-pytest tests/test_source_verdict.py -v
+gltest tests/
 ```
+
+`pytest tests/test_source_verdict.py -v` runs the same 26 tests.
 
 ## Deployment
 
-- **Contract address:** `0x...TBD after deploy`
-- **Network:** studionet
+- **CONTRACT_ADDRESS:** `0x131ba118B8594AA4e38c9e54DB9267aE805Ab8c8`
+- **NETWORK:** studionet
+- **Explorer:** https://explorer-studio.genlayer.com/address/0x131ba118B8594AA4e38c9e54DB9267aE805Ab8c8
 
-No audit is stored on-chain yet. The worked example below is the expected result from the local test suite (`test_high_credibility_news_outlet`), not a receipt from studionet.
+A read-only `get_count()` call against this address returned `0`. `lookup_by_url("https://reuters.com/technology/ai")` returned `{"found": false}`. The account has the deploy transaction only, so no assessment is stored on-chain yet. The worked example below is the expected result from the local test suite (`test_high_credibility_news_outlet`), not a receipt from studionet.
 
 ### Worked example (expected output, not a live assessment)
 
